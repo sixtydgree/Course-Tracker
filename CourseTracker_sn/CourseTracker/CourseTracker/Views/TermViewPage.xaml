@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CourseTracker.Views.TermViewPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="updateBtn" Text="Edit" Clicked="updateBtn_Clicked"/>
+        <ToolbarItem x:Name="deleteBtn" Text="Delete" Clicked="deleteBtn_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Padding="30">
+            <Label x:Name="startDate"/>
+            <Label x:Name="endDate"/>
+            <Label x:Name="status"/>
+            <Button Text="Add Course" x:Name="addCourseBtn" Clicked="addCourseBtn_Clicked"/>
+            <ListView x:Name="courseList" HasUnevenRows="True" ItemSelected="courseList_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding CourseName}" TextColor="{StaticResource Key=secondaryBlue}" FontSize="Large" FontAttributes="Bold"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Start Date:"/>
+                                    <Label Text="{Binding StartDate, StringFormat='{0:M/dd/yyyy}'}"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="End Date"/>
+                                    <Label Text="{Binding EndDate, StringFormat='{0:M/dd/yyyy}'}"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Status:"/>
+                                    <Label Text="{Binding Status}"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding PerformanceName}"/>
+                                    <Label Text="{Binding PerformanceDue, StringFormat='{0:M/dd/yyyy}'}"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding ObjectiveName}"/>
+                                    <Label Text="{Binding ObjectiveDue, StringFormat='{0:M/dd/yyyy}'}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

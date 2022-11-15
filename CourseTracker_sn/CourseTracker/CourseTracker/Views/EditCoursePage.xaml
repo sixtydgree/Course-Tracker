@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CourseTracker.Views.EditCoursePage" Title="Edit Course">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" x:Name="saveBtn" Clicked="saveBtn_Clicked"/>
+        <ToolbarItem Text="Cancel" x:Name="cancelBtn" Clicked="cancelBtn_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="30">
+                <Entry x:Name="courseNameEntry"/>
+                <Label Text="Start" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center"/>
+                <DatePicker x:Name="courseStartDate"/>
+                <Label Text="End" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Center"/>
+                <DatePicker x:Name="courseEndDate"/>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="courseNotification" CheckedChanged="CheckedChanged"/>
+                    <Label Text="Notify me of this courses start and end dates." FontSize="Small"/>
+                </StackLayout>
+                <Label Text="Status" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
+                <Picker x:Name="status">
+                    <Picker.Items>
+                        <x:String>Not Started</x:String>
+                        <x:String>Started</x:String>
+                        <x:String>Complete</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Label Text="Course Instructor" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold"/>
+                <Entry x:Name="instructorName"/>
+                <Entry x:Name="instructorPhone" Keyboard="Telephone"/>
+                <Entry x:Name="instructorEmail" Keyboard="Email"/>
+
+                <Label Text="Assessments" HorizontalOptions="Center" FontSize="Large" FontAttributes="Bold"/>
+                <Label Text="Performance" HorizontalOptions="Center" FontAttributes="Bold"/>
+                <Entry x:Name="performanceName"/>
+                <Label Text="Start" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
+                <DatePicker x:Name="performanceStart"/>
+                <Label Text="End" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
+                <DatePicker x:Name="performanceEnd"/>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="performanceNotification" CheckedChanged="CheckedChanged"/>
+                    <Label Text="Notify me when this assessment is to start and when it is due." FontSize="Small"/>
+                </StackLayout>
+                <Label Text="Objective" HorizontalOptions="Center" FontAttributes="Bold"/>
+                <Entry x:Name="objectiveName"/>
+                <Label Text="Start" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
+                <DatePicker x:Name="objectiveStart"/>
+                <Label Text="End" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
+                <DatePicker x:Name="objectiveEnd"/>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="objectiveNotification" CheckedChanged="CheckedChanged"/>
+                    <Label Text="Notify me when this assessment is to start and when it is due." FontSize="Small"/>
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

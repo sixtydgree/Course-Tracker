@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CourseTracker.Views.CourseViewPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Edit" x:Name="updateBtn" Clicked="updateBtn_Clicked"/>
+        <ToolbarItem Text="Delete" x:Name="deleteBtn" Clicked="deleteBtn_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout x:Name="courseLayout" Padding="30">
+
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Start:" />
+                    <Label x:Name="startDate" Text="{Binding StartDate, StringFormat='{0:M/dd/yyyy}'}"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="End:" />
+                    <Label x:Name="endDate" Text="{Binding EndDate, StringFormat='{0:M/dd/yyyy}'}"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="courseNotification" CheckedChanged="CheckedChanged"/>
+                    <Label Text="Notify me of this courses start and end dates." FontSize="Small"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Status:"/>
+                    <Label x:Name="status" Text="{Binding Status}"/>
+                </StackLayout>
+
+
+                <Editor x:Name="notes"  
+                        AutoSize="TextChanges" 
+                        MaxLength="400">
+                    <Editor.Keyboard>
+                        <Keyboard x:FactoryMethod="Create">
+                            <x:Arguments>
+                                <KeyboardFlags>All</KeyboardFlags>
+                            </x:Arguments>
+                        </Keyboard>
+                    </Editor.Keyboard>
+                </Editor>
+                <Label Text="Notes save automatically" FontSize="Micro"/>
+
+                <Button x:Name="shareNotesBtn" Text="Share Notes" Clicked="shareNotesBtn_Clicked"/>
+
+                    <Label Text="Course Instructor" HorizontalOptions="Center" FontSize="Medium" FontAttributes="Bold"/>
+                <Label x:Name="instructorName"/>
+                <Label x:Name="instructorEmail"/>
+                <Label x:Name="instructorPhone"/>
+
+                <Label Text="Performance Assessment" HorizontalOptions="Center"/>
+                <Label x:Name="performanceName"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Start:"/>
+                    <Label x:Name="performanceStart"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="End:"/>
+                    <Label x:Name="performanceEnd"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="performanceNotification"/>
+                    <Label Text="Notify me when this assessment is to start and when it is due." FontSize="Micro"/>
+                </StackLayout>
+
+                <Label Text="Objective Assessment" HorizontalOptions="Center"/>
+                <Label x:Name="objectiveName"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Start:"/>
+                    <Label x:Name="objectiveStart"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="End:"/>
+                    <Label x:Name="objectiveEnd"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox x:Name="objectiveNotification"/>
+                    <Label Text="Notify me when this assessment is to start and when it is due." FontSize="Micro"/>
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>
